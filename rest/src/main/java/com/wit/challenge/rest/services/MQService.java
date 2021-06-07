@@ -6,6 +6,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wit.challenge.entities.OperationRequest;
+
 @Service
 public class MQService {
 
@@ -14,7 +16,7 @@ public class MQService {
 
 	public BigDecimal getCalculation(String operation, BigDecimal a, BigDecimal b) {
 
-		rabbitTemplate.convertAndSend("calculationQueue", "HELLO WORLD");
+		rabbitTemplate.convertAndSend("calculationQueue", new OperationRequest(operation, a, b));
 
 		return new BigDecimal(-1);
 	}

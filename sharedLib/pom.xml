@@ -3,19 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wit.challenge</groupId>
-	<artifactId>WitCalculator</artifactId>
+	<artifactId>sharedLib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>wit-challenge</name>
-	<description>REST API calculator wit </description>
+	<name>wit-calculator-sharedLib</name>
+	<description>REST API calculator </description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-	
-	 <modules>
-        <module>rest</module>
-        <module>calculator</module>
-        <module>sharedLib</module>
-	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
