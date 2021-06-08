@@ -12,12 +12,14 @@ public class OperationRequest implements Serializable{
 	private Operations op;
 	private BigDecimal a;
 	private BigDecimal b;
+	private String uuid;
 
-	public OperationRequest(Operations op, BigDecimal a, BigDecimal b) {
+	public OperationRequest(Operations op, BigDecimal a, BigDecimal b, String uuid) {
 		super();
 		this.op = op;
 		this.a = a;
 		this.b = b;
+		this.uuid = uuid;
 	}
 
 	public Operations getOp() {
@@ -44,10 +46,20 @@ public class OperationRequest implements Serializable{
 		this.b = b;
 	}
 
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	@Override
 	public String toString() {
-		return "OperationRequest [op=" + op + ", a=" + a + ", b=" + b + "]";
+		return "OperationRequest [op=" + op + ", a=" + a + ", b=" + b + ", uuid=" + uuid + "]";
 	}
+	
+	
 
 
 }

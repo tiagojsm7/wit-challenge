@@ -6,12 +6,13 @@ import java.math.MathContext;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
+import com.wit.challenge.entities.Constants;
 import com.wit.challenge.entities.OperationRequest;
 import com.wit.challenge.entities.OperationResult;
 
 @Service
 public class CalculatorService {
-	@RabbitListener(queues = "calculationQueue")
+	@RabbitListener(queues = Constants.QUEUE_NAME)
 	public OperationResult listenAMQP(OperationRequest request) {
 		return calculate(request);
 	}
