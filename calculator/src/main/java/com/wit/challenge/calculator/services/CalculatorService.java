@@ -1,6 +1,7 @@
 package com.wit.challenge.calculator.services;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,6 @@ public class CalculatorService {
 	}
 	
 	private OperationResult calculate(OperationRequest request) {
-		System.out.println(request.getOp());
 		if (request.getA() == null || request.getB() == null) {
 			return new OperationResult(null, "Arguments cannot be null.");
 		}
@@ -29,7 +29,7 @@ public class CalculatorService {
 			if (request.getB().compareTo(BigDecimal.ZERO) == 0) {
 				return new OperationResult(null, "Cannot divide by zero.");
 			}
-			return new OperationResult(request.getA().divide(request.getB()), "Ok");
+			return new OperationResult(request.getA().divide(request.getB(), MathContext.DECIMAL128), "Ok");
 		case MULTI:
 			return new OperationResult(request.getA().multiply(request.getB()), "Ok");
 		case SUBTR:
