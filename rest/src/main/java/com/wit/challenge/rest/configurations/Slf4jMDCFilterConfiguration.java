@@ -15,7 +15,7 @@ public class Slf4jMDCFilterConfiguration {
 
     @Bean
     public FilterRegistrationBean<Filter> servletRegistrationBean() {
-        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        final FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<Filter>();
         final Slf4jMDCFilter log4jMDCFilterFilter = new Slf4jMDCFilter(Constants.DEFAULT_RESPONSE_TOKEN_HEADER,
         		Constants.DEFAULT_MDC_UUID_TOKEN_KEY, null);
         registrationBean.setFilter(log4jMDCFilterFilter);

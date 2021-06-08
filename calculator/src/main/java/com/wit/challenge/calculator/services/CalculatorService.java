@@ -3,8 +3,13 @@ package com.wit.challenge.calculator.services;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
+import org.slf4j.Logger;
+
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.wit.challenge.entities.Constants;
 import com.wit.challenge.entities.OperationRequest;
@@ -12,9 +17,21 @@ import com.wit.challenge.entities.OperationResult;
 
 @Service
 public class CalculatorService {
+	
+	Logger logger = LoggerFactory.getLogger(CalculatorService.class);
+	
 	@RabbitListener(queues = Constants.QUEUE_NAME)
 	public OperationResult listenAMQP(OperationRequest request) {
-		return calculate(request);
+		if (request != null && !StringUtils.isEmpty(request.getUuid())) {
+			MDC.put(Constants.DEFAULT_MDC_UUID_TOKEN_KEY, request.getUuid());
+		}
+		logger.info("Request received: {}", request);
+
+		OperationResult result = calculate(request);
+
+		logger.info("Request result: {}", result);
+
+		return result;
 	}
 	
 	private OperationResult calculate(OperationRequest request) {
