@@ -1,9 +1,14 @@
 package com.wit.challenge.entities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class OperationResult {
+public class OperationResult implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private BigDecimal result;
 	private String message;
 

@@ -9,22 +9,22 @@ public class OperationRequest implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String op;
+	private Operations op;
 	private BigDecimal a;
 	private BigDecimal b;
 
-	public OperationRequest(String op, BigDecimal a, BigDecimal b) {
+	public OperationRequest(Operations op, BigDecimal a, BigDecimal b) {
 		super();
 		this.op = op;
 		this.a = a;
 		this.b = b;
 	}
 
-	public String getOp() {
+	public Operations getOp() {
 		return op;
 	}
 
-	public void setOp(String op) {
+	public void setOp(Operations op) {
 		this.op = op;
 	}
 

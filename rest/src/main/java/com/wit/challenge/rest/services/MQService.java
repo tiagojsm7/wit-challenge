@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wit.challenge.entities.OperationRequest;
+import com.wit.challenge.entities.OperationResult;
+import com.wit.challenge.entities.Operations;
 
 @Service
 public class MQService {
@@ -14,10 +16,14 @@ public class MQService {
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 
-	public BigDecimal getCalculation(String operation, BigDecimal a, BigDecimal b) {
-
-		rabbitTemplate.convertAndSend("calculationQueue", new OperationRequest(operation, a, b));
-
-		return new BigDecimal(-1);
+	public OperationResult getCalculation(Operations operation, BigDecimal a, BigDecimal b) {
+		OperationResult result = new OperationResult(null, "Something went wrong.");
+		try {
+			result = (OperationResult) rabbitTemplate.convertSendAndReceive("calculationQueue", new OperationRequest(operation,a,b));			
+		} catch (Exception e) {
+			// TODO: handle exception 
+			// logging
+		}
+		return result;
 	}
 }
