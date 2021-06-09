@@ -29,4 +29,4 @@ The response is a JSON object with the elements `result` and `message`.
 
 The `message` attribute contains a message commonly used to indicate errors. If there are no errors message should be "Ok".
 
-The `result` attribute contains the resulted returned by the API. If an error occurs result will be "null".
+The `result` attribute contains the operation result returned by the API. If an error occurs result will be "null".
