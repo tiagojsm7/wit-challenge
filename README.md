@@ -27,6 +27,6 @@ The response is a JSON object with the elements `result` and `message`.
 }
 ```
 
-The `message` attribute contains a message commonly used to indicate errors. If there are no errors message should be "Ok".
+The `message` attribute contains a message commonly used to indicate errors. If there are no errors message is "Ok".
 
 The `result` attribute contains the operation result returned by the API. If an error occurs result will be "null".
