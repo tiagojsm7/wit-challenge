@@ -9,57 +9,45 @@ public class OperationRequest implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Operations op;
-	private BigDecimal a;
-	private BigDecimal b;
-	private String uuid;
+	private Operations operation;
+	private BigDecimal firstOperator;
+	private BigDecimal secondOperator;
 
-	public OperationRequest(Operations op, BigDecimal a, BigDecimal b, String uuid) {
+	public OperationRequest(Operations operation, BigDecimal firstOperator, BigDecimal secondOperator) {
 		super();
-		this.op = op;
-		this.a = a;
-		this.b = b;
-		this.uuid = uuid;
+		this.operation = operation;
+		this.firstOperator = firstOperator;
+		this.secondOperator = secondOperator;
 	}
 
-	public Operations getOp() {
-		return op;
+	public Operations getOperation() {
+		return operation;
 	}
 
-	public void setOp(Operations op) {
-		this.op = op;
+	public void setOperation(Operations operation) {
+		this.operation = operation;
 	}
 
-	public BigDecimal getA() {
-		return a;
+	public BigDecimal getFirstOperator() {
+		return firstOperator;
 	}
 
-	public void setA(BigDecimal a) {
-		this.a = a;
+	public void setFirstOperator(BigDecimal firstOperator) {
+		this.firstOperator = firstOperator;
 	}
 
-	public BigDecimal getB() {
-		return b;
+	public BigDecimal getSecondOperator() {
+		return secondOperator;
 	}
 
-	public void setB(BigDecimal b) {
-		this.b = b;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
+	public void setSecondOperator(BigDecimal secondOperator) {
+		this.secondOperator = secondOperator;
 	}
 
 	@Override
 	public String toString() {
-		return "OperationRequest [op=" + op + ", a=" + a + ", b=" + b + ", uuid=" + uuid + "]";
+		return "OperationRequest [operation=" + operation + ", firstOperator=" + firstOperator + ", secondOperator="
+				+ secondOperator + "]";
 	}
-	
-	
-
 
 }
