@@ -11,7 +11,7 @@ GET /{operation}?a={number1}&b={number2}
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| `operation` | `string` | **Required**. Operation to perform. Can take the following values: `sum`,`subtr`,`div`,`multi`. |
+| `operation` | `string` | **Required**. Operation to perform. Can take the following values: `sum`,`subtract`,`divide`,`multiply`. |
 | `number1` | `number` | **Required**. First number of the operation. |
 | `number2` | `number` | **Required**. Second number of the operation. |
 
